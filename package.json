@@ -6,8 +6,8 @@
   "scripts": {
     "cy:run": "npm run runChrome & npm run runFirefox",
     "cy:runSpec": "npm run runChrome -- --spec %npm_config_spec% & npm run runFirefox -- --spec %npm_config_spec%",
-    "runChrome": "cypress run --browser chrome --reporter mochawesome --reporter mochawesome --reporter-options \"reportFilename=chrome,reportDir=cypress/report/mochawesome-report,overwrite=false,timestamp=mmddyyyy_HHMMss,json=false,html=true\"",
-    "runFirefox": "cypress run --browser firefox --reporter mochawesome --reporter mochawesome --reporter-options \"reportFilename=firefox,reportDir=cypress/report/mochawesome-report,overwrite=false,timestamp=mmddyyyy_HHMMss,json=false,html=true\""
+    "runChrome": "cypress run --browser chrome --reporter mochawesome --reporter mochawesome --reporter-options \"reportFilename=chrome,reportDir=cypress/report/mochawesome-report,overwrite=false,timestamp=mmddyyyy_HHMMss,json=false,html=true\" --record --key 3cc26c46-68a9-4371-ade6-902132bdbe84",
+    "runFirefox": "cypress run --browser firefox --reporter mochawesome --reporter mochawesome --reporter-options \"reportFilename=firefox,reportDir=cypress/report/mochawesome-report,overwrite=false,timestamp=mmddyyyy_HHMMss,json=false,html=true\" --record --key 3cc26c46-68a9-4371-ade6-902132bdbe84"
   },
   "author": "",
   "license": "ISC",
