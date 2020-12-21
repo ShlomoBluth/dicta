@@ -1,13 +1,13 @@
-Cypress.Commands.add('homePageSection',(language,url,numberOfButton)=>{
+Cypress.Commands.add('homePageSection',(Sectionname, language,url,numberOfButton)=>{
   cy.setLanguageMode(language)
     let count=0
-    cy.get('div[class*="nakdan-auto"]').children().each(($el)=>{
+    cy.get('div[class*='+Sectionname+']').children().each(($el)=>{
       if($el.is('a')){
         count++
         cy.get($el).should('have.attr', 'target', '_blank').
         and('have.attr', 'href',url)
       } else if($el.is('div[class*="product-description"]')){
-        cy.get($el).children('a').not('[id="nakdanDemoLink"]').then(()=>{
+        cy.get($el).children('a').not('[id*="DemoLink"]').then(()=>{
           count++
         })
         .should('have.attr', 'target', '_blank').
