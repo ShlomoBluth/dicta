@@ -2,3 +2,6 @@
 cypress/videos
 cypress/screenshots
 mochawesome-report
+
+# Dependency directories
+node_modules/
