@@ -1,4 +1,4 @@
-Cypress.Commands.add('homePageSection',(Sectionname, language,url,numberOfButton)=>{
+Cypress.Commands.add('sectionInHomePageTest',(Sectionname, language,url,numberOfButton)=>{
   cy.setLanguageMode(language)
     let count=0
     cy.get('div[class*='+Sectionname+']').children().each(($el)=>{

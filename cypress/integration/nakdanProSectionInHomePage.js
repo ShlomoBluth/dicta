@@ -16,27 +16,27 @@ describe('NakdanProSectionInHomePage',()=>{
   })
 
   it('Links in the nakdan-pro section in hebrew mode have 3 nakdanpro urls and open in a new tab',()=>{
-    cy.homePageSection('nakdan-pro','Hebrew','https://nakdanpro.dicta.org.il/',2)
+    cy.sectionInHomePageTest('nakdan-pro','Hebrew','https://nakdanpro.dicta.org.il/',2)
   })
 
   it('Links in the nakdan-auto section in english mode have 3 nakdanpro urls and open in a new tab',()=>{
-    cy.homePageSection('nakdan-pro','English','https://nakdanpro.dicta.org.il/',2)
+    cy.sectionInHomePageTest('nakdan-pro','English','https://nakdanpro.dicta.org.il/',2)
   })
 
   it('Links in the nakdan-auto section in hebrew mode have 4 nakdanpro urls and open in a new tab',()=>{
-    cy.homePageSection('nakdan-pro','Hebrew','https://nakdanpro.dicta.org.il/',3)
+    cy.sectionInHomePageTest('nakdan-pro','Hebrew','https://nakdanpro.dicta.org.il/',3)
   })
 
   it('Links in the nakdan-auto section in english mode have 4 nakdanpro urls and open in a new tab',()=>{
-    cy.homePageSection('nakdan-pro','English','https://nakdanpro.dicta.org.il/',3)
+    cy.sectionInHomePageTest('nakdan-pro','English','https://nakdanpro.dicta.org.il/',3)
   })
 
   it('Links in the nakdan-auto section in hebrew mode have wrong nakdanpro url and open in a new tab',()=>{
-    cy.homePageSection('nakdan-pro','Hebrew','https://nnakdanpro.dicta.org.il/',2)
+    cy.sectionInHomePageTest('nakdan-pro','Hebrew','https://nnakdanpro.dicta.org.il/',2)
   })
 
   it('Links in the nakdan-pro section in english mode have wrong nakdanpro url and open in a new tab',()=>{
-    cy.homePageSection('nakdan-pro','English','https://nnakdanpro.dicta.org.il/',2)
+    cy.sectionInHomePageTest('nakdan-pro','English','https://nnakdanpro.dicta.org.il/',2)
   })
 
 })   
