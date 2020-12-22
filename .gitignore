@@ -1,6 +1,7 @@
 # Cypress
 cypress/videos
 cypress/screenshots
+cypress/report
 mochawesome-report
 
 # Dependency directories
