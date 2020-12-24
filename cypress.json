@@ -1,4 +1,13 @@
 {
-    "projectId": "w8rpbb",
-    "screenshotOnRunFailure": false
+  "projectId": "w8rpbb",
+  "screenshotOnRunFailure": false,
+  "defaultCommandTimeout": 600000,
+  "pageLoadTimeout":600000,
+  "requestTimeout": 600000,
+  "viewportHeight": 800,
+  "viewportWidth": 800,
+  "env": {
+    "site_key": "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
+    "secret_key": "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
+  }
 }

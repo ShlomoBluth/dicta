@@ -12,8 +12,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^6.1.0",
+    "chrome-ext-downloader": "^1.0.4",
+    "cypress": "^6.2.0",
     "cypress-wait-until": "^1.7.1",
+    "mailslurp-client": "^8.9.1",
     "mocha": "^8.2.1",
     "mochawesome": "^6.2.1",
     "mochawesome-merge": "^4.2.0",
