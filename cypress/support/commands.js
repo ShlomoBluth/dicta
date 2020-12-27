@@ -1,21 +1,5 @@
 
-const { MailSlurp } = require("mailslurp-client");
-
-const apiKey = "2d3fa11eac4a5ebb6af11d8a190b771d0d034d50e318aa6a8f6604139ebffd61";
-const mailslurp = new MailSlurp({ apiKey });
-
-Cypress.Commands.add("createInbox", () => {
-  // instantiate MailSlurp
-  const mailslurp = new MailSlurp({ apiKey: "2d3fa11eac4a5ebb6af11d8a190b771d0d034d50e318aa6a8f6604139ebffd61"});
-  // return { id, emailAddress } or a new randomly generated inbox
-  return mailslurp.createInbox();
-});
-
-Cypress.Commands.add("waitForLatestEmail", (inboxId) => {
-  return mailslurp.waitForLatestEmail(inboxId);
-});
-
-Cypress.Commands.add("contactUsForm",(language)=>{
+Cypress.Commands.add("contactUsFormTest",(language)=>{
   let title,name,email,message,buttonText
   if(language=='Hebrew'){
     title='צרו קשר'
@@ -52,17 +36,17 @@ Cypress.Commands.add("contactUsFormSubmit",(language,name,email,message)=>{
   cy.get('div[id="dropdown-header"]').should('have.attr','class','dropdown closed') 
   cy.get('a[id="contactUsButton"]').click()
   cy.get('div[id="dropdown-header"]').should('have.attr','class','dropdown')
-    .within(()=>{
-      cy.get('form').within(()=>{
-      cy.get('input[name="name"]').invoke('val', name)
-      cy.get('input[name="_replyto"]').type(email)
-      cy.get('textarea[name="message"]').invoke('val', message)
-    //cy.get('button[type="submit"]').click()
-    }).submit()
+  .within(()=>{
+    cy.get('form').within(()=>{
+    cy.get('input[name="name"]').invoke('val', name)
+    cy.get('input[name="_replyto"]').type(email)
+    cy.get('textarea[name="message"]').invoke('val', message)
+    cy.get('button').click()   
+    })
   })
 })
 
-Cypress.Commands.add('textMessageTest',(language,fieldName,message)=>{
+Cypress.Commands.add('textMessageTest',(fieldName,message)=>{
   cy.get('div[id="dropdown-header"]').within(()=>{
     cy.get('[name="'+fieldName+'"]').then(($input) => {
       expect($input[0].validationMessage).to.contain(message)
