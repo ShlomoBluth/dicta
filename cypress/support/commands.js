@@ -41,7 +41,10 @@ Cypress.Commands.add("contactUsFormSubmit",(language,name,email,message)=>{
     cy.get('input[name="name"]').invoke('val', name)
     cy.get('input[name="_replyto"]').type(email)
     cy.get('textarea[name="message"]').invoke('val', message)
-    cy.get('button').click()   
+    cy.get('button').click()
+    cy.on("url:changed", (newUrl) => {
+      expect(newUrl).to.contain('https://formspree.io/dicta@dicta.org.il')
+    })   
     })
   })
 })
@@ -75,6 +78,9 @@ Cypress.Commands.add('sectionInHomePageTest',(Sectionname, language,url,numberOf
 })
 
 
+import 'cypress-file-upload';
+
+
 
 Cypress.Commands.add('setLanguageMode',(language)=>{
   cy.get('body').then(elem => {
@@ -84,12 +90,16 @@ Cypress.Commands.add('setLanguageMode',(language)=>{
     }else if(language=='English'){
       languageMode=''
     }
-    let classAttr = elem.attr("class");
+    let classAttr = elem.attr("class").substring(0,2);
     if(classAttr!=languageMode)
     {
       cy.get('a').contains(/^English$/||/^עברית$/).click();
     }
-    cy.get('body').should('have.attr','class',languageMode)
+    if(languageMode=='he'){
+      cy.get('a').contains(/^English$/).should('exist')
+    } else{
+      cy.get('a').contains(/^עברית$/).should('exist')
+    }
   })
 })
 
@@ -103,5 +113,20 @@ Cypress.Commands.add('clearAllCookies', () => {
       cy.clearCookies();
     }
   })
+
+Cypress.Commands.add('citationBadRequest',(language,message)=>{
+  cy.visit('https://citation.dicta.org.il/')
+  cy.setLanguageMode(language)
+  cy.intercept('POST', '/api', {
+    statusCode: 500
+  })
+  cy.get('textarea[id="textEntryArea"]').type('משה קיבל תורה')
+  cy.get('[id="findInstancesBttn"]').click().then(()=>{
+  cy.get('.modal-body').within(()=>{
+    cy.get('span').should('be.visible').invoke('text')
+      .should('contain',message)
+    })
+  })
+})  
 
   

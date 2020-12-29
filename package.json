@@ -14,6 +14,7 @@
   "devDependencies": {
     "chrome-ext-downloader": "^1.0.4",
     "cypress": "^6.2.0",
+    "cypress-file-upload": "^4.1.1",
     "cypress-wait-until": "^1.7.1",
     "mailslurp-client": "^8.9.1",
     "mocha": "^8.2.1",

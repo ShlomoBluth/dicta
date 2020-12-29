@@ -6,7 +6,10 @@ describe('ContactUsInHomePage',()=>{
   let inboxId;
   let emailAddress;
 
- 
+  before(()=>{
+    inboxId = 'cf72a11c-bad1-409e-983a-2d90eeed757d';
+    emailAddress = 'cf72a11c-bad1-409e-983a-2d90eeed757d@mailslurp.com';
+  })
 
   beforeEach(() => {
     cy.visit('https://dicta.org.il/')
@@ -67,4 +70,9 @@ describe('ContactUsInHomePage',()=>{
     cy.contactUsFormSubmit('English','Ben',emailAddress,'')
     cy.textMessageTest('message','Please fill out this field.')
   })
+
+  it('Url changed on submit the form hebrew mode',()=>{
+    cy.contactUsFormSubmit('Hebrew','שאול',emailAddress,'טסט')
+  })
+
 })
