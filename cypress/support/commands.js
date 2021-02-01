@@ -114,19 +114,6 @@ Cypress.Commands.add('clearAllCookies', () => {
     }
   })
 
-Cypress.Commands.add('citationBadRequest',(language,message)=>{
-  cy.visit('https://citation.dicta.org.il/')
-  cy.setLanguageMode(language)
-  cy.intercept('POST', '/api', {
-    statusCode: 500
-  })
-  cy.get('textarea[id="textEntryArea"]').type('משה קיבל תורה')
-  cy.get('[id="findInstancesBttn"]').click().then(()=>{
-  cy.get('.modal-body').within(()=>{
-    cy.get('span').should('be.visible').invoke('text')
-      .should('contain',message)
-    })
-  })
-})  
+
 
   
