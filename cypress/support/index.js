@@ -15,6 +15,7 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import '../../dicta-shared/visit.js'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

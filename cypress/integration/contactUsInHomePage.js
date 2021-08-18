@@ -12,7 +12,7 @@ describe('ContactUsInHomePage',()=>{
   })
 
   beforeEach(() => {
-    cy.visit('https://dicta.org.il/')
+    cy.visitpage({url:'https://dicta.org.il/'})
   })
 
 //Need to go through all the cookies in the firefox browser and clear after each test otherwise 
